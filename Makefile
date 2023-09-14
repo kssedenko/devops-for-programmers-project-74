@@ -1,7 +1,7 @@
 ci: install run-test
 
 install:
-	docker compose run --rm app npm ci
+	docker compose run --rm app npm ci --legacy-peer-deps
 run-test:
 	docker compose -f docker-compose.yml up --abort-on-container-exit
 build:
