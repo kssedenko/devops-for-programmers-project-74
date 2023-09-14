@@ -1,2 +1,2 @@
-release: npm run migrate
+release: npm run migrate --legacy-peer-deps
 web: fastify start -a 0.0.0.0 -l info app.js
