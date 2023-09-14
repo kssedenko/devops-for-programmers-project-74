@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./app:/app
+    command: bash -c 'sleep 3 && npm start'
+
+  caddy:
+    image: caddy:latest
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - app
