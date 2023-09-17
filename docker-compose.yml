@@ -15,7 +15,7 @@ services:
       npm_config_cache: /home/node/app/.npm
     ports:
       - "8080:8080"
-    command: bash -c 'sleep 3 && npm test'
+    command: npm test
     depends_on:
       - db
 
