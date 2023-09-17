@@ -17,11 +17,3 @@ export default (fastify) => {
   // Таким образом открывается ещё одно соединение к БД.
   // В итоге вручную подключить sequelize проще и работает всё корректно.
   // Ниже закоментировано подключение с помощью sequelize-fastify
-
-await fastify.register(sequelizeFastify, {
- instance: 'db',
- sequelizeOptions: dbConfig[fastify.mode],
- });
-eslint-disable-next-line
-fastify.db.models = db.sequelize.models;
-};
