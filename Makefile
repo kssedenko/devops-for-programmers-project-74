@@ -1,10 +1,14 @@
-dev:
-	@ docker-compose up --abort-on-container-exit
-ci:
-	@ docker-compose -f docker-compose.yml run app npm test
+ci: install run-test
+
+install:
+	@ docker-compose run --rm app npm ci
+run-test:
+	@ docker-compose -f docker-compose.yml up --abort-on-container-exit
 build:
 	@ docker-compose -f docker-compose.yml build app
 push:
 	@ docker-compose -f docker-compose.yml push app
-env:
-	@ cp .env.example .env
+build-prod:
+	@ docker-compose build 
+up-prod:
+	@ docker-compose up -d 
